@@ -9,7 +9,7 @@ def main():
     while True:
         matrizCopy = matriz.copy()
         print(printTxt)
-        entrada = input()
+        entrada = '1'
         while entrada not in Options:
             print("Entrada invalida\n")
             entrada = input()
