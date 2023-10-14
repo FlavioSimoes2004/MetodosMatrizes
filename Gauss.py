@@ -1,3 +1,6 @@
+def gauss(mat):
+	gaussianElimination(mat)
+
 def gaussianElimination(mat):
 	global N
 	N = mat[0].__len__() - 1

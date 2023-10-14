@@ -21,7 +21,4 @@ def seidel(a, x ,b):
             if(j != i): 
                 d-=a[j][i] * x[i] 
         x[j] = d / a[j][j]            
-    return x     
-
-
-
+    return x
