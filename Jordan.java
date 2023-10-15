@@ -1,6 +1,6 @@
 //código em JAVA
 //Método de Gauss Jordan
-public class GaussJo{
+public class Jordan{
 	
 public static double[][] MatGaJo(double[][] Matriz){
 	double[][] VMatriz = Matriz;
@@ -55,9 +55,9 @@ public static double[][] MatGaJo(double[][] Matriz){
 
 public static void main(String[] args) {
 	double A[][] = {
-			{3, -2, 5, 2},
-			{2, 4, -1, 2},
-			{-7, -3, 4, 2}
+			{3, 2, 4, 1},
+			{1, 1, 2, 2},
+			{4, 3, -2, 3}
 	};
 	System.out.println("| "+ A[0][0] + " " + A[0][1] + " " + A[0][2] + " | " + A[0][3] + " |");
 	System.out.println("| "+ A[1][0] + " " + A[1][1] + " " + A[1][2] + " | " + A[1][3] + " |");

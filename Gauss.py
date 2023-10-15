@@ -1,35 +1,39 @@
+import numpy as np
+
 def gauss(mat):
 	gaussianElimination(mat)
 
 def gaussianElimination(mat):
 	global N
-	N = mat[0].__len__() - 1
-	print("N = ", N)
+	N = mat[0].__len__() - 1 #pois a ultima coluna é o resultado da equacao
+	#print("N = ", N)
 
-	singular_flag = forwardElim(mat)
+	global iteraction
+	iteraction = 0
+
+	singular_flag = eliminar(mat)
 
 	if (singular_flag != -1):
-
-		print("Matriz Singular")
-
-		if (mat[singular_flag][N]):
-			print("Sistema inconsistente")
-		else:
-			print("Tem solucoes infinitas")
-
+		print("Matriz Singular, tem um sistema inconscistente ou infinitas soluçoes")
 		return
 
 	backSub(mat)
 
-def swap_row(mat, i, j): #trocar linhas
+def printMatriz(mat):
+	iteraction += 1
+	print("iteracao: ", iteraction)
+	print(np.asarray(mat), "\n")
+
+def trocarLinha(mat, i, j):
 
 	for k in range(N + 1):
-
 		temp = mat[i][k]
 		mat[i][k] = mat[j][k]
 		mat[j][k] = temp
+	
+	printMatriz(mat)
 
-def forwardElim(mat):
+def eliminar(mat):
 	for k in range(N):
 	
 		i_max = k
@@ -44,7 +48,7 @@ def forwardElim(mat):
 			return k # Matrix e singular
 
 		if (i_max != k):
-			swap_row(mat, k, i_max)
+			trocarLinha(mat, k, i_max)
 
 		for i in range(k + 1, N):
 
@@ -54,6 +58,8 @@ def forwardElim(mat):
 				mat[i][j] -= mat[k][j]*f
 
 			mat[i][k] = 0
+
+			printMatriz(mat)
 
 	return -1
 
