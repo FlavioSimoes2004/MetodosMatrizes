@@ -1,7 +1,8 @@
-public class Jordan{	
-
-	public static double[][] MatGaJo(double[][] Matriz){
-	int loop=0;
+//código em JAVA
+//Método de Gauss Jordan
+public class Jordan{
+	
+public static double[][] MatGaJo(double[][] Matriz){
 	double[][] VMatriz = Matriz;
 	double VNum; //variáveis
 	
