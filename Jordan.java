@@ -1,8 +1,9 @@
 //código em JAVA
 //Método de Gauss Jordan
-public class Jordan{
-	
-public static double[][] MatGaJo(double[][] Matriz){
+public class Jordan{	
+
+	public static double[][] MatGaJo(double[][] Matriz){
+	int loop=0;
 	double[][] VMatriz = Matriz;
 	double VNum; //variáveis
 	
