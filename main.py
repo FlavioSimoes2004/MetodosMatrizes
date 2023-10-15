@@ -24,7 +24,7 @@ def main():
         
         if entrada == "1":
             b = getB(matrizCopy)
-            print(Gauss.eliminacao_de_gauss(np.asarray(matrizCopy), np.asarray(b)))
+            print(Gauss.gauss(np.asarray(matrizCopy), np.asarray(b)))
         elif entrada == "2":
             Seidel.solucao(matrizCopy)
         else:
