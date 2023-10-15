@@ -14,9 +14,6 @@ def gauss(A, b):
         A = trocarLinha(A, i, max_index)
         b = trocarLinha(b, i, max_index)
         count += 1
-        #A[i], A[max_index] = A[max_index], A[i]
-        #b[i], b[max_index] = b[max_index], b[i]
-                
 
         for j in range(i+1, n):
             fator = A[j][i] / A[i][i]
