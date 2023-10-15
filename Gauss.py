@@ -3,6 +3,7 @@ import numpy as np
 def gauss(A, b):
     n = len(A) #tamanho da matriz A
     x = [0] * n
+    x = np.asarray(x)
     count = 0
 
     for i in range(n):
