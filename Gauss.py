@@ -1,27 +1,27 @@
 import numpy as np
 
 def gauss(mat):
+	global count
+	count = 0
 	gaussianElimination(mat)
 
 def gaussianElimination(mat):
-	global N
+	global N, count
 	N = mat[0].__len__() - 1 #pois a ultima coluna é o resultado da equacao
-	#print("N = ", N)
 
-	global iteraction
-	iteraction = 0
+	singular = eliminar(mat)
 
-	singular_flag = eliminar(mat)
-
-	if (singular_flag != -1):
+	if (singular != -1):
 		print("Matriz Singular, tem um sistema inconscistente ou infinitas soluçoes")
 		return
 
+	#se chegar aki, deu certo
 	backSub(mat)
 
 def printMatriz(mat):
-	iteraction += 1
-	print("iteracao: ", iteraction)
+	global count
+	count += 1
+	print("iteracao: ", count)
 	print(np.asarray(mat), "\n")
 
 def trocarLinha(mat, i, j):
@@ -30,8 +30,7 @@ def trocarLinha(mat, i, j):
 		temp = mat[i][k]
 		mat[i][k] = mat[j][k]
 		mat[j][k] = temp
-	
-	printMatriz(mat)
+		printMatriz(mat)
 
 def eliminar(mat):
 	for k in range(N):
@@ -56,9 +55,9 @@ def eliminar(mat):
 
 			for j in range(k + 1, N + 1):
 				mat[i][j] -= mat[k][j]*f
+				printMatriz(mat)
 
 			mat[i][k] = 0
-
 			printMatriz(mat)
 
 	return -1
