@@ -17,9 +17,8 @@ def gauss(A, b):
 
         for j in range(i+1, n):
             fator = A[j][i] / A[i][i]
-            for k in range(i, n):
-                A[j][k] -= fator * A[i][k]
-            b[j] -= fator * b[i]
+            A[j] -= A[i].dot(fator)
+            b[j] -= b[i].dot(fator)
             count += 1
 
     # Substituição de volta
@@ -28,7 +27,7 @@ def gauss(A, b):
         for j in range(i+1, n):
             x[i] -= A[i][j] * x[j]
         x[i] /= A[i][i]
-    
+    print("interactions: ", count)
     return x
 
 def trocarLinha(mat, i ,j):
