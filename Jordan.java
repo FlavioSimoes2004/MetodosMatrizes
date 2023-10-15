@@ -1,8 +1,9 @@
 //código em JAVA
 //Método de Gauss Jordan
-public class Jordan{
-	
-public static double[][] MatGaJo(double[][] Matriz){
+public class Jordan{	
+
+	public static double[][] MatGaJo(double[][] Matriz){
+	int loop=0;
 	double[][] VMatriz = Matriz;
 	double VNum; //variáveis
 	
@@ -13,10 +14,20 @@ public static double[][] MatGaJo(double[][] Matriz){
 		for(int j=0; j<=VMatriz[0].length-1; j++) {
 			VMatriz[i][j] = VMatriz[i][j]/VNum;
 		}
-		System.out.println("| "+ VMatriz[0][0] + " " + VMatriz[0][1] + " " + VMatriz[0][2] + " | " + VMatriz[0][3] + " |");
-		System.out.println("| "+ VMatriz[1][0] + " " + VMatriz[1][1] + " " + VMatriz[1][2] + " | " + VMatriz[1][3] + " |");
-		System.out.println("| "+ VMatriz[2][0] + " " + VMatriz[2][1] + " " + VMatriz[2][2] + " | " + VMatriz[2][3] + " |");
-		System.out.println("");
+		while(loop==0) {
+			for(int a=0; a<VMatriz.length; a++) {
+				System.out.print("| ");
+				for(int b=0; b<VMatriz[0].length; b++) {
+					System.out.print(VMatriz[a][b] + ", ");
+				}
+				System.out.print("|");
+				System.out.println(" ");
+				
+			}
+			System.out.println("-------------");
+			loop++;
+		}
+		loop=0;
 		if(i<=VMatriz.length-2) {
 			for(int j=i+1; j<=VMatriz.length-1; j++) {
 				VNum = VMatriz[j][i];
@@ -25,10 +36,20 @@ public static double[][] MatGaJo(double[][] Matriz){
 					VMatriz[j][k] = (VMatriz[j][k]-(VNum*VMatriz[i][k]));
 					
 				}
-				System.out.println("| "+ VMatriz[0][0] + " " + VMatriz[0][1] + " " + VMatriz[0][2] + " | " + VMatriz[0][3] + " |");
-				System.out.println("| "+ VMatriz[1][0] + " " + VMatriz[1][1] + " " + VMatriz[1][2] + " | " + VMatriz[1][3] + " |");
-				System.out.println("| "+ VMatriz[2][0] + " " + VMatriz[2][1] + " " + VMatriz[2][2] + " | " + VMatriz[2][3] + " |");
-				System.out.println("");
+				while(loop==0) {
+					for(int a=0; a<VMatriz.length; a++) {
+						System.out.print("| ");
+						for(int b=0; b<VMatriz[0].length; b++) {
+							System.out.print(VMatriz[a][b] + ", ");
+						}
+						System.out.print("|");
+						System.out.println(" ");
+						
+					}
+					System.out.println("-------------");
+					loop++;
+				}
+				loop=0;
 			}
 		}
 		
@@ -42,10 +63,20 @@ public static double[][] MatGaJo(double[][] Matriz){
 				VMatriz[j][k] = (VMatriz[j][k]-(VNum*VMatriz[i][k]));
 				
 			}
-			System.out.println("| "+ VMatriz[0][0] + " " + VMatriz[0][1] + " " + VMatriz[0][2] + " | " + VMatriz[0][3] + " |");
-			System.out.println("| "+ VMatriz[1][0] + " " + VMatriz[1][1] + " " + VMatriz[1][2] + " | " + VMatriz[1][3] + " |");
-			System.out.println("| "+ VMatriz[2][0] + " " + VMatriz[2][1] + " " + VMatriz[2][2] + " | " + VMatriz[2][3] + " |");
-			System.out.println("");
+			while(loop==0) {
+				for(int a=0; a<VMatriz.length; a++) {
+					System.out.print("| ");
+					for(int b=0; b<VMatriz[0].length; b++) {
+						System.out.print(VMatriz[a][b] + ", ");
+					}
+					System.out.print("|");
+					System.out.println(" ");
+					
+				}
+				System.out.println("-------------");
+				loop++;
+			}
+			loop=0;
 		}
 		
 	}
@@ -54,15 +85,25 @@ public static double[][] MatGaJo(double[][] Matriz){
 }
 
 public static void main(String[] args) {
+	int loop=0;
 	double A[][] = {
-			{3, 2, 4, 1},
-			{1, 1, 2, 2},
-			{4, 3, -2, 3}
+			{3, -2, 5, 2, 5},
+			{2, 4, -1, 2, 6},
+			{-7, -3, 4, 2, 7}
 	};
-	System.out.println("| "+ A[0][0] + " " + A[0][1] + " " + A[0][2] + " | " + A[0][3] + " |");
-	System.out.println("| "+ A[1][0] + " " + A[1][1] + " " + A[1][2] + " | " + A[1][3] + " |");
-	System.out.println("| "+ A[2][0] + " " + A[2][1] + " " + A[2][2] + " | " + A[2][3] + " |");
-	System.out.println("");
+	while(loop==0) {
+		for(int a=0; a<A.length; a++) {
+			System.out.print("| ");
+			for(int b=0; b<A[0].length; b++) {
+				System.out.print(A[a][b] + ", ");
+			}
+			System.out.print("|");
+			System.out.println(" ");
+			
+		}
+		System.out.println("-------------");
+		loop++;
+	}
 	
 	MatGaJo(A);
 	
