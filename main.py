@@ -1,7 +1,7 @@
 import numpy as np
 import Seidel, Gauss
 
-matriz = [[1.0, 0.0, 0.0, 1.0, 35.0], [1.0, 1.0, 0.0, 0.0, 40.0], [0.0, 1.0, 1.0, -1.0, 30.0]]
+matriz = [[1.0, 0.0, 0.0, 35.0], [1.0, 1.0, 0.0, 40.0], [0.0, 1.0, 1.0, 30.0]]
 
 def getB(matriz):
     b = []
@@ -15,7 +15,7 @@ def main():
     printTxt = "1 - Gauss\n2 - Seidel\n3 - FECHA"
     Options = ["1", "2", "3"]
     while True:
-        matrizCopy = matriz.copy()
+        matrizCopy = list(matriz)
         print(printTxt)
         entrada = input()
         while entrada not in Options:

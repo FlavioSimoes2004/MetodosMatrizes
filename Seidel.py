@@ -31,3 +31,5 @@ def seidel(a, x ,b):
                 d-=a[j][i] * x[i]
         x[j] = d / a[j][j]
     return x
+
+#solucao(matriz)

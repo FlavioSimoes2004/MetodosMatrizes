@@ -1,6 +1,7 @@
 import numpy as np
 
-def gauss(A, b):
+def gauss(A, b, e=-3):
+    erro = 10**e
     n = len(A) #tamanho da matriz A
     x = [0] * n
     x = np.asarray(x)
