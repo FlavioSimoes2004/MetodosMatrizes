@@ -19,6 +19,9 @@ def gauss(A, b, e=-3):
 
         for j in range(i+1, n):
             fator = A[j][i] / A[i][i]
+            if fator != 0 and abs(fator) < erro:
+                print(fator)
+                raise Exception("criterio parada")
             A[j] -= A[i].dot(fator)
             b[j] -= b[i].dot(fator)
             count += 1
