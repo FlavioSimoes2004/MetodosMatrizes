@@ -1,81 +1,38 @@
 import numpy as np
 
-def gauss(mat):
-	global count
-	count = 0
-	gaussianElimination(mat)
+global count
+count = 0
 
-def gaussianElimination(mat):
-	global N, count
-	N = mat[0].__len__() - 1 #pois a ultima coluna é o resultado da equacao
+def gauss(A, b):
+    n = len(A)
+    x = [0] * n
 
-	singular = eliminar(mat)
+    for i in range(n):
+        # Achar o elemento de maior valor presente na coluna atual
+        max_index = i
+        for j in range(i+1, n):
+            if abs(A[j][i]) > abs(A[max_index][i]):
+                max_index = j
+        A[i], A[max_index] = A[max_index], A[i]
+        b[i], b[max_index] = b[max_index], b[i]
 
-	if (singular != -1):
-		print("Matriz Singular, tem um sistema inconscistente ou infinitas soluçoes")
-		return
+        for j in range(i+1, n):
+            fator = A[j][i] / A[i][i]
+            for k in range(i, n):
+                A[j][k] -= fator * A[i][k]
+            b[j] -= fator * b[i]
 
-	#se chegar aki, deu certo
-	backSub(mat)
+    # Substituição de volta
+    for i in range(n - 1, -1, -1):
+        x[i] = b[i]
+        for j in range(i+1, n):
+            x[i] -= A[i][j] * x[j]
+        x[i] /= A[i][i]
+
+    return x
 
 def printMatriz(mat):
 	global count
 	count += 1
 	print("iteracao: ", count)
 	print(np.asarray(mat), "\n")
-
-def trocarLinha(mat, i, j):
-
-	for k in range(N + 1):
-		temp = mat[i][k]
-		mat[i][k] = mat[j][k]
-		mat[j][k] = temp
-		printMatriz(mat)
-
-def eliminar(mat):
-	for k in range(N):
-	
-		i_max = k
-		v_max = mat[i_max][k]
-
-		for i in range(k + 1, N):
-			if (abs(mat[i][k]) > v_max):
-				v_max = mat[i][k]
-				i_max = i
-
-		if not mat[k][i_max]:
-			return k # Matrix e singular
-
-		if (i_max != k):
-			trocarLinha(mat, k, i_max)
-
-		for i in range(k + 1, N):
-
-			f = mat[i][k]/mat[k][k]
-
-			for j in range(k + 1, N + 1):
-				mat[i][j] -= mat[k][j]*f
-				printMatriz(mat)
-
-			mat[i][k] = 0
-			printMatriz(mat)
-
-	return -1
-
-def backSub(mat):
-
-	x = [None for _ in range(N)] # array para armazenar a solucao
-
-	for i in range(N-1, -1, -1):
-
-		x[i] = mat[i][N]
-
-		for j in range(i + 1, N):
-		
-			x[i] -= mat[i][j]*x[j]
-
-		x[i] = (x[i]/mat[i][i])
-
-	print("\nSolucao:")
-	for i in range(N):
-		print(x[i])

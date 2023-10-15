@@ -1,12 +1,13 @@
+import numpy as np
 import Seidel, Gauss
 
-matriz = [[3, 2, 4, 1], [1, 1, 2, 2], [4, 3, -2, 3]]
+matriz = [[1.0, 0.0, 0.0, 1.0, 35.0], [1.0, 1.0, 0.0, 0.0, 40.0], [0.0, 1.0, 1.0, -1.0, 30.0]]
 
 def getB(matriz):
     b = []
 
     for i in range(matriz.__len__()):
-        b.append([matriz.pop()])
+        b.append([matriz[i].pop()])
 
     return b
 
@@ -22,7 +23,8 @@ def main():
             entrada = input()
         
         if entrada == "1":
-            Gauss.gauss(matrizCopy)
+            b = getB(matrizCopy)
+            print(Gauss.eliminacao_de_gauss(np.asarray(matrizCopy), np.asarray(b)))
         elif entrada == "2":
             Seidel.solucao(matrizCopy)
         else:
