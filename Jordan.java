@@ -87,9 +87,9 @@ public class Jordan{
 public static void main(String[] args) {
 	int loop=0;
 	double A[][] = {
-			{3, -2, 5, 2, 5},
-			{2, 4, -1, 2, 6},
-			{-7, -3, 4, 2, 7}
+			{1, 0, 0, 1, 35},
+			{1, 1, 0, 0, 40},
+			{0, 1, 1, -1, 30}
 	};
 	while(loop==0) {
 		for(int a=0; a<A.length; a++) {
