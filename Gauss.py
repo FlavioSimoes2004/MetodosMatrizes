@@ -15,6 +15,7 @@ def gauss(A, b, e=-3):
                 max_index = j
         A = trocarLinha(A, i, max_index)
         b = trocarLinha(b, i, max_index)
+        printIteraction(A, b)
         count += 1
 
         for j in range(i+1, n):
@@ -24,6 +25,7 @@ def gauss(A, b, e=-3):
                 raise Exception("criterio parada")
             A[j] -= A[i].dot(fator)
             b[j] -= b[i].dot(fator)
+            printIteraction(A, b)
             count += 1
 
     # Substituição de volta
@@ -40,3 +42,8 @@ def trocarLinha(mat, i ,j):
     mat[i] = mat[j]
     mat[j] = aux
     return mat
+
+def printIteraction(A, b):
+    for i in range(A.__len__()):
+        print(A[i], b[i])
+    print('\n')
